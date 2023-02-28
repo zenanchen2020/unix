@@ -1,0 +1,265 @@
+Assignment 1
+
+sudo adduser username
+
+cat /etc/passwd
+
+
+
+Assignment 2
+
+mkdir imgs
+
+wget -O car.jpeg https://github.com/samk-ai/cmd-tools-course-materials/blob/main/images/cars/audi.jpeg?raw=true
+
+ls
+
+wget -O nature.jpeg  https://github.com/samk-ai/cmd-tools-course-materials/blob/main/images/nature/bridge.jpeg?raw=true
+
+ls
+
+cd ..
+
+tar -czf niceimages.tar.gz imgs/
+
+tar -tvf niceimages.tar.gz
+
+
+
+Assignment 3
+
+curl https://www.google.com
+
+sudo apt-get install w3m w3m-img
+
+w3m https://www.google.com
+
+q
+
+
+
+Assignment 4
+
+echo $PATH
+
+which -a python3
+
+which -a tree
+
+which -a apache2
+
+which -a w3m
+
+
+
+Assignment 5
+
+sudo ln -s /usr/bin/python3 /usr/bin/python
+
+git clone git://github.com/wting/autojump.git
+
+cd autojump
+
+python3 install.py
+
+echo "[[ -s /home/niceuser/.autojump/etc/profile.d/autojump.sh ]] && source /home/niceuser/.autojump/etc/profile.d/autojump.sh" >> .bashrc
+
+source ~/.bashrc
+
+cd /bin
+
+cd ~/
+
+j bin
+
+
+
+Assignment 6
+
+sudo ufw status
+
+sudo ufw enable
+
+sudo ufw allow 25
+
+sudo ufw allow 24
+
+sudo ufw status verbose
+
+sudo ufw deny 25
+
+sudo ufw deny 24
+
+sudo ufw status verbose
+
+
+
+Assignment 7
+
+htop
+
+q
+
+ping -i 10 google.com &>/dev/null &
+
+htop
+
+F3
+
+ping(enter)
+
+F9
+
+find sigterm and enter
+
+q
+
+
+
+Assignment 8
+
+apt-get moo
+
+
+
+Advanced Exercise 1
+
+sudo nano /usr/bin/tar_compress_gzip
+
+(in nano):
+
+#!/bin/sh
+
+tar -czf $1.tar.gz $1
+
+sudo chmod +x /usr/bin/tar_compress_gzip
+
+mkdir 5
+
+/usr/bin/./tar_compress_gzip 5
+
+ls
+
+
+
+Advanced Exercise 2
+
+sudo nano /usr/bin/tar_extract_gzip
+
+(in nano):
+
+#!/bin/sh
+
+tar -xvf $1
+
+sudo chmod +x /usr/bin/tar_extract_gzip
+
+cd 5
+
+/usr/bin/./tar_extract_gzip ~/5.tar.gz
+
+
+
+Advanced Exercise 3
+
+sudo nano /usr/bin/find_in_files
+
+(in nano):
+
+#!/bin/sh
+
+find -name "$1"
+
+sudo chmod +x /usr/bin/find_in_files
+
+/usr/bin/./find_in_files 1.txt
+
+
+
+Advanced Exercise 4
+
+sudo nano /usr/bin/find_file
+
+(in nano):
+
+#!/bin/sh
+
+find -name "$1"
+
+find -name "$2"
+
+/usr/bin/./find_file 2 5
+
+
+
+Advanced Exercise 5
+
+sudo nano /usr/bin/tar_compress_gzip
+
+(change in nano):
+
+#!/bin/sh
+
+if [ $# -eq 0 ];
+
+then
+
+  read -p "A file that you typed up :" name
+
+
+
+  tar -czf $name.tar.gz $name
+
+else
+
+  tar -czf $1.tar.gz $1
+
+fi
+
+
+
+sudo nano /usr/bin/tar_extract_gzip
+
+(change in nano):
+
+#!/bin/sh
+
+if [ $# -eq 0 ];
+
+then
+
+  read -p "A file you need to extract, can contain directory, but do not appear ~ : " ko
+
+  tar -xvf $ko
+
+else
+
+  tar -xvf $1
+
+fi
+
+
+
+sudo nano /usr/bin/find_in_files
+
+(change in nano):
+
+#!/bin/sh
+
+find -name "$1"
+
+if [ $# -eq 0 ];then
+
+    read -p "A file you want to find: " file
+
+    $file == $1
+
+    find -name "$1"
+
+fi
+
+
+
+Advanced Exercise 6( i don't know how to that surullinen )
+
+ping -i 10 google.com screen>/dev/null screen
